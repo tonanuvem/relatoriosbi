@@ -7,7 +7,7 @@ docker-compose up -d
 
 echo ""
 echo "Aguardando a configuração."
-while [ "$(docker logs superset_superset_1 2>&1 | grep "start" | wc -l)" != "1" ]; do
+while [ "$(docker logs superset_superset_1 2>&1 | grep "Listening at" | wc -l)" != "1" ]; do
   printf "."
   sleep 1
 done
