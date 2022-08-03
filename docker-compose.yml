@@ -1,0 +1,51 @@
+version: "3.7"
+
+services:
+
+  superset:
+    #env_file: docker/.env-non-dev
+    image: apache/superset
+    container_name: superset_app
+    #command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
+    #user: "root"
+    restart: unless-stopped
+    ports:
+      - 8088:8088
+    #depends_on: *superset-depends-on
+    volumes:
+      #- ./docker:/app/docker
+      - superset_home:/app/superset_home
+
+  # CURSO dataset: exemplo MySQL
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysqldb
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      PMA_USER: admin
+      PMA_PASSWORD: admin
+    restart: always
+    ports:
+      - 8082:80  
+    restart: unless-stopped
+    depends_on: 
+      - mysqldb
+    
+  mysqldb:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: curso
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - "./mysql_init_database.sql:/docker-entrypoint-initdb.d/init-database.sql"
+      - "./mysql.cnf:/etc/mysql/conf.d/mysql.cnf"
+      
+volumes:
+  superset_home:
+  mysqldata:
