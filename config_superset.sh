@@ -1,6 +1,6 @@
 # Setup your local admin account
 
-docker exec -it superset superset fab create-admin \
+docker exec -it superset_app superset fab create-admin \
               --username admin \
               --firstname Superset \
               --lastname Admin \
@@ -9,11 +9,11 @@ docker exec -it superset superset fab create-admin \
 
 # Migrate local DB to latest
 
-docker exec -it superset superset db upgrade
+docker exec -it superset_app superset db upgrade
 
 #Load Examples
-# docker exec -it superset superset load_examples
+# docker exec -it superset_app superset load_examples
 
 # Setup roles
 
-docker exec -it superset superset init
+docker exec -it superset_app superset init
