@@ -1,4 +1,4 @@
-# superset
+# Relatorios BI : usando o app Superset
 Plataforma moderna de exploração e visualização de dados
 
 Links:
