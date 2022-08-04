@@ -1,3 +1,3 @@
 Exemplos de Dashboards.
 
-<img src="relatorio.jpg" width="250">
+<img src="relatorio.jpg" width="1300">
