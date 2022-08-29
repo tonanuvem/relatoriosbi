@@ -1,7 +1,7 @@
 # Liberando a porta no caso de rodar no Cloud9
 sudo service mysql stop
 
-chmod 755 mysql_init_database.sh
+chmod 755 mysql_init_database.sql
 
 docker-compose up -d
 
