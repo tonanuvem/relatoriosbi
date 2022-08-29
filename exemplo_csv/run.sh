@@ -13,6 +13,11 @@ while [ "$(docker logs superset_app 2>&1 | grep "Listening at" | wc -l)" != "1" 
 done
 echo ""
 sh ../config_superset.sh
+
+echo "Loading Dashboard:"
+echo 
+docker exec -it superset_app superset import-dashboards -p /app/superset_home/superset/dashboard.zip
+
 echo "Config OK"
 IP=$(curl -s checkip.amazonaws.com)
 echo ""
