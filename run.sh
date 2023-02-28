@@ -13,6 +13,14 @@ while [ "$(docker logs superset_app 2>&1 | grep "Listening at" | wc -l)" != "1" 
 done
 echo ""
 sh config_superset.sh
+echo ""
+echo "Aguardando a inicio do MySQL."
+while [ "$(docker logs mysqldb 2>&1 | grep "port: 3306" | wc -l)" != "1" ]; do
+  printf "."
+  sleep 1
+done
+echo ""
+echo ""
 echo "Config OK"
 IP=$(curl -s checkip.amazonaws.com)
 echo ""
