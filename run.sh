@@ -15,7 +15,7 @@ echo ""
 sh config_superset.sh
 echo ""
 echo "Aguardando a inicio do MySQL."
-while [ "$(docker logs mysqldb 2>&1 | grep "port: 3306" | wc -l)" > "1" ]; do
+while [ "$(docker logs mysqldb 2>&1 | grep "port: 3306  MySQL Community Server (GPL)" | wc -l)" != "1" ]; do
   printf "."
   sleep 1
 done
