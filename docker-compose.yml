@@ -7,7 +7,7 @@ services:
     image: apache/superset
     environment:
       SUPERSET_SECRET_KEY: fiap
-      CSRF_ENABLED: False
+      CSRF_ENABLED: false
     container_name: superset_app
     #command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
     #user: "root"
