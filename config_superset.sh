@@ -1,11 +1,11 @@
 # Setup your local admin account
 
 docker exec -it superset_app superset fab create-admin \
-              --username admin \
+              --username fiap \
               --firstname Superset \
-              --lastname Admin \
+              --lastname fiap \
               --email admin@admin.com \
-              --password admin
+              --password fiap
 
 # Migrate local DB to latest
 
