@@ -4,10 +4,10 @@ services:
 
   superset:
     #env_file: docker/.env-non-dev
-    image: apache/superset
+    image: apache/superset:2-0
     environment:
       SUPERSET_SECRET_KEY: fiap
-      WTF_CSRF_ENABLED: "False"
+      #WTF_CSRF_ENABLED: "False"
     container_name: superset_app
     #command: ["/app/docker/docker-bootstrap.sh", "app-gunicorn"]
     #user: "root"
