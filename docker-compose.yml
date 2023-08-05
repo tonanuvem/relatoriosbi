@@ -4,7 +4,7 @@ services:
 
   superset:
     #env_file: docker/.env-non-dev
-    image: apache/superset:2-0
+    image: apache/superset:2-1
     environment:
       SUPERSET_SECRET_KEY: fiap
       #WTF_CSRF_ENABLED: "False"
